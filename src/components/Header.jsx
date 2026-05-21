@@ -25,15 +25,31 @@ export default function Header({ score, matchedCount = 0 }) {
       </h1>
 
       {/* Right — Score & Fullscreen */}
-      <div className="flex items-center gap-3">
-        <div className="border border-stone-300 rounded px-5 py-2.5 bg-stone-100/50 flex items-center">
-          <span className="font-semibold text-xs tracking-wider text-stone-600 uppercase">
-            PAIRES : {matchedCount} / 11
+      <div className="flex items-center" style={{ gap: "25px" }}>
+        <div
+          className="flex items-center"
+          style={{
+            border: "1px solid #dcd7cf",
+            borderRadius: "50px",
+            padding: "12px 28px",
+            backgroundColor: "#fdfaf5",
+          }}
+        >
+          <span style={{ fontSize: "11px", fontWeight: "600", letterSpacing: "0.12em", color: "#6b6560", textTransform: "uppercase" }}>
+            Paires : {matchedCount} / 11
           </span>
         </div>
-        <div className="border border-stone-850 rounded px-6 py-2.5 flex items-center bg-white shadow-sm">
-          <span className="font-bold text-base text-stone-900">
-            SCORE : {score}
+        <div
+          className="flex items-center"
+          style={{
+            border: "1px solid #2c2c2c",
+            borderRadius: "50px",
+            padding: "12px 28px",
+            backgroundColor: "#fdfaf5",
+          }}
+        >
+          <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.12em", color: "#2c2c2c", textTransform: "uppercase" }}>
+            Score : {score}
           </span>
         </div>
         <FullscreenButton />
