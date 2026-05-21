@@ -59,12 +59,22 @@ export default function GameBoard({ state, actions }) {
     }
   }, [phase, playerPlayedCard, botPlayedCard, actions]);
 
-  // Auto-transition from correct to popup
+  // Auto-transition from correct to flip_merge
   useEffect(() => {
     if (phase === PHASE.CORRECT) {
       const timer = setTimeout(() => {
+        actions.startFlipMerge();
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  }, [phase, actions]);
+
+  // Auto-transition from flip_merge to popup
+  useEffect(() => {
+    if (phase === PHASE.FLIP_MERGE) {
+      const timer = setTimeout(() => {
         actions.showPopup();
-      }, 1500);
+      }, 2400);
       return () => clearTimeout(timer);
     }
   }, [phase, actions]);

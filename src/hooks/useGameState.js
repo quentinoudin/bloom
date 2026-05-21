@@ -14,6 +14,7 @@ export const PHASE = {
   PLAYER_TURN: "player_turn",
   CHECKING: "checking",
   CORRECT: "correct",
+  FLIP_MERGE: "flip_merge",
   WRONG: "wrong",
   SHOW_POPUP: "show_popup",
   DRAWING: "drawing",
@@ -168,6 +169,13 @@ function gameReducer(state, action) {
       };
     }
 
+    case "START_FLIP_MERGE": {
+      return {
+        ...state,
+        phase: PHASE.FLIP_MERGE,
+      };
+    }
+
     case "SHOW_POPUP": {
       return {
         ...state,
@@ -261,6 +269,10 @@ export function useGameState() {
     () => dispatch({ type: "WRONG_ANIMATION_DONE" }),
     []
   );
+  const startFlipMerge = useCallback(
+    () => dispatch({ type: "START_FLIP_MERGE" }),
+    []
+  );
   const showPopup = useCallback(
     () => dispatch({ type: "SHOW_POPUP" }),
     []
@@ -286,6 +298,7 @@ export function useGameState() {
       matchCorrect,
       matchWrong,
       wrongAnimationDone,
+      startFlipMerge,
       showPopup,
       closePopup,
       drawComplete,

@@ -8,8 +8,9 @@ export default function PlayArea({
   phase,
   points,
 }) {
-  const showResult = phase === "correct" || phase === "show_popup" || phase === "wrong";
-  const isCorrect = phase === "correct" || phase === "show_popup";
+  const isFlipMerge = phase === "flip_merge";
+  const showResult = phase === "correct";
+  const isCorrect = phase === "correct" || phase === "show_popup" || phase === "flip_merge";
 
   return (
     <div className="flex items-center justify-center gap-6 min-h-[240px]">
@@ -20,17 +21,26 @@ export default function PlayArea({
             <motion.div
               key={`bot-played-${botPlayedCard.pairId}`}
               initial={{ opacity: 0, y: -80, rotateY: 180 }}
-              animate={{ opacity: 1, y: 0, rotateY: 0 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                rotateY: 0,
+                x: isFlipMerge ? 140 : 0,
+                zIndex: isFlipMerge ? 5 : 0,
+              }}
               transition={{
+                opacity: { duration: 0.4 },
                 y: { type: "spring", stiffness: 200, damping: 20 },
                 rotateY: { duration: 0.6, delay: 0.3 },
+                x: { delay: 0.7, duration: 0.55, ease: "easeInOut" },
+                zIndex: { delay: 0.7 },
               }}
-              style={{ perspective: 1000 }}
+              style={{ perspective: 1000, position: "relative" }}
             >
               <Card
                 card={botPlayedCard}
-                isFaceDown={false}
-                isCorrect={phase === "correct" || phase === "show_popup"}
+                isFaceDown={isFlipMerge}
+                isCorrect={isCorrect}
                 isWrong={false}
                 size="normal"
                 backImage="/cards/dos-technologie.png"
@@ -56,7 +66,7 @@ export default function PlayArea({
         <AnimatePresence>
           {showResult && (
             <ResultFeedback
-              isCorrect={isCorrect}
+              isCorrect={true}
               isVisible={showResult}
               points={points}
             />
@@ -71,20 +81,27 @@ export default function PlayArea({
             <motion.div
               key={`player-played-${playerPlayedCard.pairId}`}
               initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 80 }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 20,
+              animate={{
+                opacity: 1,
+                y: 0,
+                x: isFlipMerge ? -140 : 0,
+                zIndex: isFlipMerge ? 10 : 0,
               }}
+              transition={{
+                opacity: { duration: 0.4 },
+                y: { type: "spring", stiffness: 200, damping: 20 },
+                x: { delay: 0.7, duration: 0.55, ease: "easeInOut" },
+                zIndex: { delay: 0.7 },
+              }}
+              style={{ position: "relative" }}
             >
               <Card
                 card={playerPlayedCard}
-                isFaceDown={false}
-                isCorrect={phase === "correct" || phase === "show_popup"}
+                isFaceDown={isFlipMerge}
+                isCorrect={isCorrect}
                 isWrong={phase === "wrong"}
                 size="normal"
+                backImage="/cards/dos-vivante.png"
               />
             </motion.div>
           ) : (
