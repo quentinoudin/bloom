@@ -63,11 +63,11 @@ export default function Card({
 
   // Determine the glow/border state
   const glowClass = isCorrect
-    ? "ring-[3px] ring-emerald-500 shadow-[0_0_18px_rgba(16,185,129,0.4)]"
+    ? "ring-[3px] ring-offset-[5px] ring-emerald-500 shadow-[0_0_18px_rgba(16,185,129,0.4)]"
     : isWrong
-      ? "ring-[3px] ring-red-500 shadow-[0_0_18px_rgba(239,68,68,0.4)]"
+      ? "ring-[3px] ring-offset-[5px] ring-red-500 shadow-[0_0_18px_rgba(239,68,68,0.4)]"
       : isHighlighted
-        ? "ring-[3px] ring-teal-400 shadow-[0_0_20px_rgba(45,212,191,0.5)]"
+        ? "ring-[3px] ring-offset-[5px] ring-teal-400 shadow-[0_0_20px_rgba(45,212,191,0.5)]"
         : "";
 
   // Whether the card is showing its back
