@@ -37,6 +37,9 @@ const sizeClasses = {
   small: "w-[120px] h-[165px]",
 };
 
+const base = import.meta.env.BASE_URL;
+const toSrc = (path) => path ? base + path.replace(/^\//, '') : '';
+
 export default function Card({
   card = {},
   isFlipped = false,
@@ -119,7 +122,7 @@ export default function Card({
           <div className="flex-1 w-full flex items-center justify-center px-4 pt-5 pb-1">
             {image && (
               <img
-                src={image}
+                src={toSrc(image)}
                 alt={name || "Card"}
                 className="max-w-full max-h-full object-contain drop-shadow-sm"
                 draggable={false}
@@ -153,7 +156,7 @@ export default function Card({
 
           {/* Back image */}
           <img
-            src={backImage}
+            src={toSrc(backImage)}
             alt="Card back"
             className="w-full h-full object-cover rounded-xl"
             draggable={false}

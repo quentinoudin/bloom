@@ -23,7 +23,7 @@ export default function DrawPile({ count }) {
           transition={{ delay: i * 0.05 }}
         >
           <img
-            src="/cards/dos-vivante.png"
+            src={`${import.meta.env.BASE_URL}cards/dos-vivante.png`}
             alt="Pioche"
             className="w-full h-full object-cover"
           />

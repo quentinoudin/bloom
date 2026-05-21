@@ -15,7 +15,7 @@ export default function BotHand({ cards }) {
             transition={{ delay: index * 0.08, type: "spring", stiffness: 300, damping: 25 }}
           >
             <img
-              src="/cards/dos-technologie.png"
+              src={`${import.meta.env.BASE_URL}cards/dos-technologie.png`}
               alt="Carte bot"
               className="w-full h-full object-cover"
             />
