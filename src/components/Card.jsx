@@ -67,7 +67,7 @@ export default function Card({
     : isWrong
       ? "ring-[3px] ring-red-500 shadow-[0_0_18px_rgba(239,68,68,0.4)]"
       : isHighlighted
-        ? "ring-[3px] ring-teal-400 shadow-[0_0_20px_rgba(45,212,191,0.5)] animate-pulse"
+        ? "ring-[3px] ring-teal-400 shadow-[0_0_20px_rgba(45,212,191,0.5)]"
         : "";
 
   // Whether the card is showing its back
