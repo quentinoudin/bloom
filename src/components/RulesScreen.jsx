@@ -104,7 +104,7 @@ export default function RulesScreen({ onStart, onBack }) {
               >
                 {rule.step}
               </span>
-              <div className="flex-1">
+              <div className="flex-1 text-center">
                 <h3
                   className="text-lg font-bold text-stone-900 mb-2 leading-snug"
                   style={{ fontFamily: "'Playfair Display', serif" }}
