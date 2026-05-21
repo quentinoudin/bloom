@@ -3,33 +3,69 @@ import { motion } from "framer-motion";
 export default function ExplanationPopup({ explanation, onClose }) {
   return (
     <div
-      className="w-full max-w-2xl rounded-[1.5rem] bg-[#faf8f5] text-stone-900 p-6 shadow-xl border border-beige-300 relative mx-auto"
+      className="explication-panel relative mx-auto w-full"
+      style={{
+        maxWidth: "700px",
+        padding: "40px 48px",
+        backgroundColor: "#fdfaf5",
+        backgroundImage: "radial-gradient(circle at center, #ffffff 0%, #fdfaf5 100%)",
+        border: "1px solid #dcd7cf",
+        borderRadius: "20px",
+        boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+        textAlign: "center",
+        position: "relative",
+      }}
     >
-      {/* Header section with Title and Close Button */}
-      <div className="flex items-center justify-between mb-4 relative px-2">
-        {/* Left spacer for perfect title centering */}
-        <div className="w-8 h-8" />
-
-        {/* Title */}
-        <h2
-          className="text-center text-2xl font-bold tracking-wide text-stone-900"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Explication
-        </h2>
-
-        {/* Circle/Square Close Button next to title as in the screenshot */}
-        <button
-          onClick={onClose}
-          className="flex h-8 w-8 items-center justify-center rounded-lg border border-beige-300 bg-[#FAF8F5] text-stone-700 transition-all hover:bg-beige-100 hover:text-stone-900 cursor-pointer shadow-xs active:scale-95"
-          aria-label="Fermer"
-        >
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        aria-label="Fermer"
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          width: "36px",
+          height: "36px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          border: "1px solid #dcd7cf",
+          borderRadius: "8px",
+          backgroundColor: "transparent",
+          cursor: "pointer",
+        }}
+        onMouseEnter={e => e.currentTarget.style.backgroundColor = "#f0ece4"}
+        onMouseLeave={e => e.currentTarget.style.backgroundColor = "transparent"}
+      >
+        <span style={{ fontFamily: "monospace", fontSize: "18px", color: "#2c2c2c", lineHeight: 1 }}>
           ✕
-        </button>
-      </div>
+        </span>
+      </button>
 
-      {/* Body Text (Left-aligned as in the screenshot) */}
-      <p className="text-stone-700 text-sm md:text-[15px] leading-relaxed text-left font-normal px-8 py-4">
+      {/* Title */}
+      <h2
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: "24px",
+          fontWeight: "700",
+          color: "#2c2c2c",
+          marginTop: 0,
+          marginBottom: "24px",
+        }}
+      >
+        Explication
+      </h2>
+
+      {/* Body */}
+      <p
+        style={{
+          fontFamily: "'Open Sans', sans-serif",
+          fontSize: "15px",
+          lineHeight: "1.75",
+          color: "#2c2c2c",
+          margin: 0,
+        }}
+      >
         {explanation}
       </p>
     </div>
