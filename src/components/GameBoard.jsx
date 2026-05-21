@@ -64,7 +64,7 @@ export default function GameBoard({ state, actions }) {
     if (phase === PHASE.CORRECT) {
       const timer = setTimeout(() => {
         actions.startFlipMerge();
-      }, 4000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [phase, actions]);
