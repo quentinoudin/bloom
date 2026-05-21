@@ -6,7 +6,7 @@ export default function ExplanationPopup({ explanation, onClose }) {
       className="explication-panel relative mx-auto w-full"
       style={{
         maxWidth: "700px",
-        padding: "40px 48px",
+        padding: "48px 64px",
         backgroundColor: "#fdfaf5",
         backgroundImage: "radial-gradient(circle at center, #ffffff 0%, #fdfaf5 100%)",
         border: "1px solid #dcd7cf",
