@@ -68,7 +68,7 @@ export default function RulesScreen({ onStart, onBack }) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex-1 flex flex-col items-center justify-center px-6 max-w-5xl mx-auto py-8 text-stone-800"
+        className="flex-1 flex flex-col items-center justify-center px-6 w-full max-w-5xl self-center py-8 text-stone-800"
       >
         {/* Title */}
         <motion.h1
