@@ -74,13 +74,11 @@ export default function WelcomeScreen({ onStart }) {
         {/* Main heading */}
         <motion.h1
           variants={fadeSlideUp}
-          className="text-3xl md:text-4xl font-bold leading-snug max-w-sm mb-6 text-stone-900 text-center"
+          className="text-3xl md:text-4xl font-bold leading-snug mb-6 text-stone-900 text-center"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Découvrez comment{" "}
-          <em>la nature</em>{" "}
-          inspire{" "}
-          <em>la technologie.</em>
+          Découvrez comment <em>la nature</em><br />
+          inspire <em>la technologie.</em>
         </motion.h1>
 
         {/* Subtitle */}
