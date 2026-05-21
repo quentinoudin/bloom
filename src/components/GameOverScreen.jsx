@@ -19,15 +19,14 @@ const fadeUp = {
 export default function GameOverScreen({ score, errors, onRestart, onMenu }) {
   return (
     <motion.div
-      className="flex min-h-[60vh] flex-col items-center justify-center gap-6 px-4 py-12"
+      style={{ display: "flex", minHeight: "60vh", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "30px", padding: "60px 16px" }}
       variants={stagger}
       initial="hidden"
       animate="visible"
     >
       {/* Title */}
       <motion.h1
-        className="text-4xl font-bold italic text-emerald-900"
-        style={{ fontFamily: "'Playfair Display', serif" }}
+        style={{ fontFamily: "'Playfair Display', serif", fontSize: "42px", fontWeight: "700", fontStyle: "italic", color: "#1a4731", margin: 0 }}
         variants={fadeUp}
       >
         Jeu réussi !
@@ -35,7 +34,7 @@ export default function GameOverScreen({ score, errors, onRestart, onMenu }) {
 
       {/* Subtitle */}
       <motion.p
-        className="text-lg text-gray-600"
+        style={{ fontSize: "17px", color: "#6b7280", margin: 0 }}
         variants={fadeUp}
       >
         Tu as compris le biomimétisme !
@@ -43,48 +42,49 @@ export default function GameOverScreen({ score, errors, onRestart, onMenu }) {
 
       {/* Score box */}
       <motion.div
-        className="rounded-xl border-2 border-emerald-700 px-10 py-4 text-center bg-white shadow-sm"
+        style={{ border: "2px solid #1a5c3a", borderRadius: "50px", padding: "22px 60px", backgroundColor: "#fdfaf5", textAlign: "center" }}
         variants={fadeUp}
       >
-        <span
-          className="text-4xl font-bold tracking-wide text-emerald-900"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
+        <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: "700", letterSpacing: "0.06em", color: "#1a4731" }}>
           SCORE FINAL : {score}
         </span>
       </motion.div>
 
       {/* Pairs box */}
       <motion.div
-        className="rounded-xl border border-stone-300 px-8 py-3 text-center bg-stone-100/50"
+        style={{ border: "1px solid #dcd7cf", borderRadius: "50px", padding: "18px 52px", backgroundColor: "#fdfaf5", textAlign: "center" }}
         variants={fadeUp}
       >
-        <span className="text-xl font-bold tracking-wide text-stone-700">
-          PAIRES ASSOCIÉES : 11 / 11
+        <span style={{ fontSize: "13px", fontWeight: "600", letterSpacing: "0.1em", color: "#4b5563", textTransform: "uppercase" }}>
+          Paires associées : 11 / 11
         </span>
       </motion.div>
 
       {/* Errors box */}
       <motion.div
-        className="rounded-xl border border-red-300 px-8 py-2 text-center bg-red-50/30"
+        style={{ border: "1px solid #fca5a5", borderRadius: "50px", padding: "18px 52px", backgroundColor: "#fff5f5", textAlign: "center" }}
         variants={fadeUp}
       >
-        <span className="text-lg font-semibold tracking-wide text-red-500">
-          ERREURS : {errors}
+        <span style={{ fontSize: "13px", fontWeight: "600", letterSpacing: "0.1em", color: "#ef4444", textTransform: "uppercase" }}>
+          Erreurs : {errors}
         </span>
       </motion.div>
 
       {/* Buttons */}
-      <motion.div className="mt-4 flex flex-col items-center gap-3" variants={fadeUp}>
-        <button
+      <motion.div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginTop: "10px" }} variants={fadeUp}>
+        <motion.button
           onClick={onRestart}
-          className="text-lg font-medium text-emerald-800 underline-offset-4 transition-colors hover:text-emerald-600 hover:underline"
+          whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(26,87,49,0.25)" }}
+          whileTap={{ scale: 0.97 }}
+          style={{ backgroundColor: "#1a5c3a", color: "#ffffff", border: "none", borderRadius: "50px", padding: "16px 60px", fontSize: "17px", fontWeight: "600", letterSpacing: "0.04em", cursor: "pointer" }}
         >
           Rejouer
-        </button>
+        </motion.button>
         <button
           onClick={onMenu}
-          className="text-base font-medium text-gray-500 underline-offset-4 transition-colors hover:text-gray-700 hover:underline"
+          style={{ background: "none", border: "none", fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#A89F96", fontWeight: "500", cursor: "pointer" }}
+          onMouseEnter={e => e.target.style.color = "#1a1a1a"}
+          onMouseLeave={e => e.target.style.color = "#A89F96"}
         >
           Menu
         </button>
