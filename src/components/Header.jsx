@@ -2,7 +2,7 @@ import FullscreenButton from "./FullscreenButton";
 
 export default function Header({ score, matchedCount = 0 }) {
   return (
-    <header className="flex items-center justify-between py-4 px-8">
+    <header className="flex items-center justify-between py-6 px-14">
       {/* Left — Logo */}
       <div className="flex flex-col leading-tight">
         <span

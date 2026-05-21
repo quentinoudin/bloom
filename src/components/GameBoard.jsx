@@ -123,7 +123,7 @@ export default function GameBoard({ state, actions }) {
     <div className="min-h-screen flex flex-col">
       <Header score={score} matchedCount={matchedPairs.length} />
 
-      <div className="flex-1 flex flex-col justify-between px-8 py-4">
+      <div className="flex-1 flex flex-col justify-between px-14 py-6">
         {/* Bot hand (top row) */}
         <div className="flex justify-center pt-2">
           <BotHand cards={botHand} />
@@ -132,7 +132,7 @@ export default function GameBoard({ state, actions }) {
         {/* Middle area: Draw pile + Play area */}
         <div className="flex items-center gap-8 px-4">
           {/* Draw pile (left) */}
-          <div className="flex-shrink-0 ml-4">
+          <div className="flex-shrink-0 ml-6">
             <DrawPile count={drawPile.length} />
           </div>
 
@@ -151,7 +151,7 @@ export default function GameBoard({ state, actions }) {
         </div>
 
         {/* Player hand or Explanation inline (bottom row) */}
-        <div className="flex justify-center pb-2 min-h-[220px] items-center w-full">
+        <div className="flex justify-center pb-8 min-h-[220px] items-center w-full">
           <AnimatePresence mode="wait">
             {phase === PHASE.SHOW_POPUP ? (
               <motion.div
