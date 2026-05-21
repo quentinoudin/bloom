@@ -1,6 +1,5 @@
 import { useGameState, PHASE } from "./hooks/useGameState";
 import WelcomeScreen from "./components/WelcomeScreen";
-import RulesScreen from "./components/RulesScreen";
 import GameBoard from "./components/GameBoard";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -17,17 +16,7 @@ function App() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <WelcomeScreen onStart={actions.showRules} />
-        </motion.div>
-      ) : state.phase === PHASE.RULES ? (
-        <motion.div
-          key="rules"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <RulesScreen onStart={actions.startGame} onBack={actions.reset} />
+          <WelcomeScreen onStart={actions.startGame} />
         </motion.div>
       ) : (
         <motion.div
