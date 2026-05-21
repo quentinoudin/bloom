@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-beige-50: #FAF7F2;
+  --color-beige-100: #F5F0E8;
+  --color-beige-200: #EDE5D8;
+  --color-beige-300: #DDD0BC;
+  --color-beige-400: #C4AD8F;
+  --color-beige-500: #A8906D;
+  --color-brown-600: #8B7355;
+  --color-brown-700: #6B5740;
+  --color-brown-800: #4A3C2C;
+  --color-brown-900: #2D2419;
+
+  --color-teal-400: #5FB8A8;
+  --color-teal-500: #4AA393;
+  --color-teal-600: #3B8A7A;
+
+  --color-green-success: #4CAF50;
+  --color-red-error: #E74C3C;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-beige-50);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Decorative background curves */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' viewBox='0 0 1440 900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-50 200 Q200 100 400 300 Q600 500 800 350 Q1000 200 1200 400 Q1400 600 1500 450' stroke='%23DDD0BC' stroke-width='1.5' fill='none' opacity='0.4'/%3E%3Cpath d='M-100 600 Q100 500 350 650 Q600 800 850 600 Q1100 400 1300 550 Q1500 700 1600 500' stroke='%23DDD0BC' stroke-width='1.5' fill='none' opacity='0.3'/%3E%3Cpath d='M200 -50 Q300 150 250 350 Q200 550 350 700 Q500 850 600 950' stroke='%23DDD0BC' stroke-width='1' fill='none' opacity='0.25'/%3E%3Cpath d='M1200 -50 Q1100 200 1150 400 Q1200 600 1050 750 Q900 900 850 1000' stroke='%23DDD0BC' stroke-width='1' fill='none' opacity='0.25'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* Card flip 3D perspective */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
