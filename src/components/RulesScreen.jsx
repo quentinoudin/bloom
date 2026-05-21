@@ -5,18 +5,18 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.12,
       delayChildren: 0.1,
     },
   },
 };
 
 const fadeSlideUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.55, ease: "easeOut" },
   },
 };
 
@@ -68,73 +68,89 @@ export default function RulesScreen({ onStart, onBack }) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex-1 flex flex-col items-center justify-center px-6 w-full max-w-5xl self-center py-8 text-stone-800"
+        className="flex-1 flex flex-col items-center justify-center w-full max-w-4xl self-center px-8 py-12 text-stone-800"
       >
-        {/* Title */}
-        <motion.h1
-          variants={fadeSlideUp}
-          className="text-3xl md:text-4xl font-bold mb-3 text-stone-900 text-center"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Règles du Jeu
-        </motion.h1>
-
-        <motion.p
-          variants={fadeSlideUp}
-          className="text-stone-500 text-xs md:text-sm tracking-widest uppercase mb-10 text-center"
-        >
-          Bloom — L'art du mimétisme architectural
-        </motion.p>
+        {/* Title block */}
+        <motion.div variants={fadeSlideUp} className="text-center mb-16">
+          <h1
+            className="text-4xl md:text-5xl font-bold text-stone-900 mb-4"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Règles du Jeu
+          </h1>
+          <p className="text-stone-400 text-xs tracking-[0.25em] uppercase">
+            Bloom — L'art du mimétisme architectural
+          </p>
+        </motion.div>
 
         {/* Rules Grid */}
         <motion.div
           variants={fadeSlideUp}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 w-full mb-16"
+          style={{ gap: "2rem" }}
         >
           {rules.map((rule, idx) => (
             <motion.div
               key={idx}
-              className="bg-[#faf8f5] p-6 rounded-[1.25rem] border border-beige-300 shadow-xs flex gap-5 items-start hover:shadow-md transition-shadow duration-300"
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              className="relative flex flex-col"
+              style={{
+                backgroundColor: "#FDFCF9",
+                border: "1px solid #E8E0D5",
+                borderRadius: "1.5rem",
+                padding: "2.5rem 2rem 2rem 2rem",
+              }}
+              whileHover={{ y: -3, boxShadow: "0 8px 32px rgba(0,0,0,0.06)" }}
+              transition={{ type: "spring", stiffness: 400, damping: 28 }}
             >
+              {/* Step number — top-left corner */}
               <span
-                className="text-3xl font-bold text-stone-300 select-none leading-none pt-0.5"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                className="absolute top-5 left-6 select-none"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "1rem",
+                  fontWeight: "700",
+                  color: "#D6CEC4",
+                  letterSpacing: "0.05em",
+                }}
               >
                 {rule.step}
               </span>
-              <div className="flex-1 text-center">
-                <h3
-                  className="text-lg font-bold text-stone-900 mb-2 leading-snug"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  {rule.title}
-                </h3>
-                <p className="text-stone-600 text-xs md:text-sm leading-relaxed">
-                  {rule.desc}
-                </p>
-              </div>
+
+              {/* Title */}
+              <h3
+                className="text-center text-xl font-bold text-stone-900 mb-4 mt-4"
+                style={{ fontFamily: "'Playfair Display', serif", lineHeight: "1.3" }}
+              >
+                {rule.title}
+              </h3>
+
+              {/* Description */}
+              <p
+                className="text-center text-stone-500 text-sm"
+                style={{ lineHeight: "1.75" }}
+              >
+                {rule.desc}
+              </p>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Action Buttons */}
-        <motion.div variants={fadeSlideUp} className="flex flex-col items-center gap-4">
+        <motion.div variants={fadeSlideUp} className="flex flex-col items-center gap-6">
           <motion.button
-            whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(0,0,0,0.25)" }}
+            whileHover={{ scale: 1.03, boxShadow: "0 12px 40px rgba(0,0,0,0.2)" }}
             whileTap={{ scale: 0.97 }}
             onClick={onStart}
-            className="cursor-pointer transition-all shadow-lg text-white"
+            className="cursor-pointer text-white transition-all"
             style={{
-              backgroundColor: "#000000",
+              backgroundColor: "#0a0a0a",
               fontFamily: "'Playfair Display', serif",
-              padding: "16px 64px",
-              fontSize: "20px",
+              padding: "18px 72px",
+              fontSize: "18px",
               fontWeight: "500",
-              borderRadius: "9999px",
+              borderRadius: "50px",
               border: "none",
-              display: "inline-block",
+              letterSpacing: "0.02em",
               lineHeight: "1.2",
             }}
           >
@@ -143,7 +159,18 @@ export default function RulesScreen({ onStart, onBack }) {
 
           <button
             onClick={onBack}
-            className="text-xs md:text-sm tracking-widest text-stone-500 hover:text-stone-900 transition-colors uppercase font-medium cursor-pointer border-b border-transparent hover:border-stone-500 py-1"
+            className="cursor-pointer transition-colors"
+            style={{
+              background: "none",
+              border: "none",
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "#A89F96",
+              fontWeight: "500",
+            }}
+            onMouseEnter={e => e.target.style.color = "#1a1a1a"}
+            onMouseLeave={e => e.target.style.color = "#A89F96"}
           >
             Retour
           </button>
