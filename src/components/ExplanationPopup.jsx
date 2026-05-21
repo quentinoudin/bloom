@@ -29,7 +29,7 @@ export default function ExplanationPopup({ explanation, onClose }) {
       </div>
 
       {/* Body Text (Left-aligned as in the screenshot) */}
-      <p className="text-stone-700 text-sm md:text-[15px] leading-relaxed text-left font-normal px-4 pb-2">
+      <p className="text-stone-700 text-sm md:text-[15px] leading-relaxed text-left font-normal px-8 py-4">
         {explanation}
       </p>
     </div>
