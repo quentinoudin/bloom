@@ -66,34 +66,29 @@ export default function WelcomeScreen({ onStart }) {
         {/* Small label */}
         <motion.span
           variants={fadeSlideUp}
-          className="text-xs tracking-widest text-stone-400 mb-6"
+          className="text-xs tracking-[0.25em] text-stone-400 mb-8 uppercase"
         >
-          BLOOM
+          Bloom
         </motion.span>
 
         {/* Main heading */}
         <motion.h1
           variants={fadeSlideUp}
-          className="text-2xl md:text-3xl font-bold leading-snug max-w-2xl mb-6 text-stone-900"
+          className="text-3xl md:text-4xl font-bold leading-snug max-w-sm mb-6 text-stone-900 text-center"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Bloom — L&apos;art du mimétisme architectural
+          Découvrez comment{" "}
+          <em>la nature</em>{" "}
+          inspire{" "}
+          <em>la technologie.</em>
         </motion.h1>
 
         {/* Subtitle */}
         <motion.p
           variants={fadeSlideUp}
-          className="text-sm md:text-base text-stone-600 max-w-xl mb-6 leading-relaxed"
+          className="text-sm text-stone-500 max-w-xs text-center leading-relaxed mb-10"
         >
-          Cette expérience, conçue pour <strong className="font-semibold text-stone-800">STK Architecture</strong>, se veut éducative et ludique, afin de faciliter la compréhension du mimétisme architectural.
-        </motion.p>
-
-        {/* Description of concept */}
-        <motion.p
-          variants={fadeSlideUp}
-          className="text-xs md:text-sm text-stone-500 max-w-lg mb-10 leading-relaxed"
-        >
-          Le concept se développe entre deux participants : le <strong className="font-medium text-stone-700">Joueur 1 (Utilisateur)</strong>, représentant la &ldquo;partie vivante&rdquo;, et le <strong className="font-medium text-stone-700">PC (Ordinateur)</strong>, simulant la &ldquo;technologie&rdquo; adaptée. Le jeu se compose de 22 cartes, réparties équitablement en deux catégories formant 11 paires.
+          Trouvez les paires qui unissent le vivant et l&apos;architecture, et comprenez le génie de la biomimétisme. Un duel d&apos;apprentissage entre vous et l&apos;ordinateur.
         </motion.p>
 
         {/* Play button */}
