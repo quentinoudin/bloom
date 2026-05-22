@@ -107,7 +107,7 @@ export default function GameBoard({ state, actions }) {
   // Game Over screen
   if (phase === PHASE.GAME_OVER) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div style={{ height: "100%", overflow: "hidden", display: "flex", flexDirection: "column" }}>
         <Header score={score} matchedCount={matchedPairs.length} />
         <GameOverScreen
           score={score}
@@ -120,19 +120,19 @@ export default function GameBoard({ state, actions }) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div style={{ height: "100%", overflow: "hidden", display: "flex", flexDirection: "column" }}>
       <Header score={score} matchedCount={matchedPairs.length} />
 
-      <div className="flex-1 flex flex-col justify-between px-14 py-6">
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "clamp(4px,1.5vh,20px) clamp(16px,3vw,56px)", overflow: "hidden" }}>
         {/* Bot hand (top row) */}
-        <div className="flex justify-center pt-2">
+        <div className="flex justify-center">
           <BotHand cards={botHand} />
         </div>
 
         {/* Middle area: Draw pile + Play area */}
-        <div className="flex items-center gap-8 px-4">
+        <div className="flex items-center" style={{ gap: "clamp(16px,2vw,32px)" }}>
           {/* Draw pile (left) */}
-          <div className="flex-shrink-0 ml-6">
+          <div className="flex-shrink-0" style={{ marginLeft: "clamp(8px,1vw,24px)" }}>
             <DrawPile count={drawPile.length} />
           </div>
 
@@ -147,11 +147,11 @@ export default function GameBoard({ state, actions }) {
           </div>
 
           {/* Right spacer for symmetry */}
-          <div className="w-[140px] flex-shrink-0" />
+          <div style={{ width: "var(--card-w-sm)", flexShrink: 0 }} />
         </div>
 
         {/* Player hand or Explanation inline (bottom row) */}
-        <div className="flex justify-center pb-8 min-h-[220px] items-center w-full">
+        <div className="flex justify-center items-center w-full">
           <AnimatePresence mode="wait">
             {phase === PHASE.SHOW_POPUP ? (
               <motion.div

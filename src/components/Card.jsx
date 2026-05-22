@@ -32,9 +32,9 @@ const shakeVariants = {
   },
 };
 
-const sizeClasses = {
-  normal: "w-[160px] h-[220px]",
-  small: "w-[120px] h-[165px]",
+const sizeStyles = {
+  normal: { width: "var(--card-w)",    height: "var(--card-h)" },
+  small:  { width: "var(--card-w-sm)", height: "var(--card-h-sm)" },
 };
 
 const base = import.meta.env.BASE_URL;
@@ -76,8 +76,8 @@ export default function Card({
   return (
     <motion.div
       layoutId={layoutId}
-      className={`perspective-1000 ${sizeClasses[size]} ${className}`}
-      style={{ ...style, cursor: disabled ? "default" : "pointer" }}
+      className={`perspective-1000 ${className}`}
+      style={{ ...sizeStyles[size], ...style, cursor: disabled ? "default" : "pointer" }}
       onClick={!disabled ? onClick : undefined}
       initial={initial}
       animate={isWrong ? "shake" : animate}

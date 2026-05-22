@@ -5,7 +5,7 @@ export default function PlayerHand({ cards, onCardClick, disabled, phase }) {
   const isPlayerTurn = phase === "player_turn";
 
   return (
-    <div className="flex justify-center gap-4 pb-6">
+    <div className="flex justify-center pb-2" style={{ gap: "var(--gap-hand)" }}>
       <AnimatePresence mode="popLayout">
         {cards.map((card, index) => (
           <motion.div

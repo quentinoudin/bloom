@@ -52,11 +52,24 @@ body::before {
   background-repeat: no-repeat;
 }
 
+:root {
+  /* Cartes normales (main joueur) */
+  --card-h:    clamp(130px, 19vh, 215px);
+  --card-w:    calc(var(--card-h) * 8 / 11);
+  /* Petites cartes (main bot, pioche) */
+  --card-h-sm: clamp(100px, 14vh, 175px);
+  --card-w-sm: calc(var(--card-h-sm) * 8 / 11);
+  /* Espacement entre cartes */
+  --gap-hand:  clamp(6px, 1vw, 16px);
+}
+
 #root {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   padding: 32px;
+  box-sizing: border-box;
 }
 
 /* Card flip 3D perspective */
